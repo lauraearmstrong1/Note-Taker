@@ -1,3 +1,6 @@
+var http = require("http");
+var fs = require("fs");
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require("path");
@@ -11,27 +14,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-require('./routes/apiRoutes.js')(app);
-require('./routes/htmlRoutes.js')(app); //passing in app which is express
+require('./routes/apiRoutes')(app);
+require('./routes/htmlRoutes')(app); //passing in app which is express
 
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
-
-
-
-
-
-
-
-
-// var http = require("http");
-// var fs = require("fs");
-
-
-// //class Storage
-
-
 
 
 // fs.readFile('/etc/passwd', (err, data) => {
@@ -44,3 +32,9 @@ app.listen(PORT, function() {
 //   if (err) throw err;
 //   console.log('The file has been saved!');
 // });
+
+
+
+
+
+
