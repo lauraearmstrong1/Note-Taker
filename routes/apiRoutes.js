@@ -17,11 +17,8 @@ module.exports = function(app) {
   // In each of the below cases when a user visits a link
   // (ex: localhost:PORT/api/admin... they are shown a JSON of the data in the table)
   // ---------------------------------------------------------------------------
-
-  app.get("/api/notes", function(req, res) {
-    res.json(noteData);
-  });
-
+  
+ 
   // API POST Requests
   // Below code handles when a user submits a form and thus submits data to the server.
   // In each of the below cases, when a user submits form data (a JSON object)
@@ -31,15 +28,22 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
 
   app.post("/api/notes", function(req, res) {
-    // Note the code here. Our "server" will respond to requests and let users know if they have a table or not.
-    // It will do this by sending out the value "true" have a table
     // req.body is available since we're using the body parsing middleware
     var newNote = req.body;
     console.log(newNote);
     notes.push(newNote);
     res.json(newNote);
   });
+
+
+  app.delete("/api/notes/:id", function(req, res) {
+    var id = req.params.id;
+    noteData.slice(id, id);
+    res.json(noteData);
+  });
 }
+
+
 
 
 
