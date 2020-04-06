@@ -1,8 +1,4 @@
-// const path = require("path");
-// //var express = require("express");
-// const router = express.Router()
-
-var path = require("path");
+const path = require("path");
 
 module.exports = function (app) {
 
